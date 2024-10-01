@@ -1,0 +1,32 @@
+/* 
+    Document   : admin
+    Created on : Mar 16, 2016, 10:21:04 AM
+    Author     : skoro
+    Description:
+        Backend styles.
+*/
+
+.navbar-nav > .user-menu > .dropdown-menu {
+    padding: 0 0 0;
+}
+
+.login-box-body .password-request {
+    text-align: left;
+    padding: 0 0 15px 0;
+}
+
+.login-page .alert, .register-page .alert {
+    margin: 10px;
+}
+
+.register-box .account-links {
+    margin-top: 10px;
+}
+
+.checkbox-list-vert label {
+    display: block;
+}
+
+ul.pagination {
+    margin: 0;
+}

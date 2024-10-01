@@ -1,0 +1,101 @@
+{
+  "name": "siripravi/yii2-invoice-admin",
+  "description": "Yii 2 Invoice Administration",
+  "keywords": [
+    "yii2",
+    "framework",
+    "invoice",
+    "payment",
+    "quotes",
+    "backend"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Purnachandra Rao Valluri",
+      "email": "provdigi@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.4.0",
+    "yiisoft/yii2": "~2.0.45",
+    "yiisoft/yii2-bootstrap5": "~2.0.2",
+    "yiisoft/yii2-symfonymailer": "~2.0.3",
+    "bower-asset/remarkable-bootstrap-notify": "^3.1",
+    "bower-asset/animate.css": "^3.5"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.1.0",
+    "yiisoft/yii2-gii": "~2.2.0",
+    "phpunit/phpunit": "~9.5.0",
+    "codeception/codeception": "^5.0.0 || ^4.0",
+    "codeception/lib-innerbrowser": "^4.0 || ^3.0 || ^1.1",
+    "codeception/module-asserts": "^3.0 || ^1.1",
+    "codeception/module-yii2": "^1.1",
+    "codeception/module-filesystem": "^3.0 || ^2.0 || ^1.1",
+    "codeception/verify": "^3.0 || ^2.2",
+    "yiisoft/yii2-faker": "*"
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/",
+      "modules\\": "modules/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "yiisoft/yii2-composer": false
+    },
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "enabled": false
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "scripts": {
+    "post-create-project-cmd": "app\\base\\Composer::postCreateProjectCmd"
+  },
+  "extra": {
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [
+        {
+          "runtime": "0777",
+          "web/assets": "0777",
+          "yii": "0755"
+        }
+      ]
+    },
+    "yii\\composer\\Installer::postInstall": {
+      "generateCookieValidationKey": [
+        "config/web.php"
+      ]
+    }
+  },
+  "extra1": {
+   
+    "app\\base\\Composer::postCreateProjectCmd": {
+      "createLocalConfig": [
+        "config-sample.php",
+        "config.php"
+      ],
+      "generateCookieValidationKey": "config.php",
+      "setPermissions": [
+        {
+          "runtime": "0777",
+          "runtime/cache": "0777",
+          "runtime/logs": "0777",
+          "web/assets": "0777"
+        }
+      ],
+      "setDatabaseConfiguration": "config.php"
+    }
+  }
+}
